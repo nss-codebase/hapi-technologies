@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #echo -e "\nregister user"
-#curl -s -X POST -H "Content-Type: application/json" -d '{"username":"bob", "password":"abc"}' localhost:8080/register
+#curl -s -v -X POST -H "Content-Type: application/json" -d '{"username":"bob1asd", "password":"abc"}' localhost:8080/register
 
 #echo -e "\nlogin user"
 #curl -s -v -X POST -c cookies.txt -H "Content-Type: application/json" -d '{"username":"bob", "password":"abc"}' localhost:8080/login

@@ -16,12 +16,12 @@ module.exports = {
     mode: 'try'
   },
   handler: function(request, reply){
-    User.login(request.payload, function(err, user){
+    User.login(request.payload, function(user){
       if(user){
-        request.auth.session.set({userId:user._id});
-        reply({username:user.username});
+        request.auth.session.set(user);
+        reply();
       }else {
-        reply({err:err});
+        reply().code(401);
       }
     });
   }

@@ -12,11 +12,14 @@ module.exports = {
       password: Joi.string().min(3).required()
     }
   },
+  auth: {
+    mode: 'try'
+  },
   handler: function(request, reply){
     var user = new User(request.payload);
     user.encrypt();
     user.save(function(err){
-      reply({err:err});
+      reply().code(err ? 401 : 200);
     });
   }
 };
