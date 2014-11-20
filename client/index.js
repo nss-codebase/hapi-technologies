@@ -11,5 +11,10 @@
         .state('login',    {url:'/login',    templateUrl:'/views/users/users.html', controller:'UsersCtrl'});
 
       $localForageProvider.config({name:'hapi-auth', storeName:'cache', version:1.0});
+    }])
+    .run(['$rootScope', '$http', function($rootScope, $http){
+      $http.get('/status').then(function(response){
+        $rootScope.$broadcast('username', response.data.username);
+      });
     }]);
 })();

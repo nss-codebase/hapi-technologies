@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('hapi-auth')
-    .controller('UsersCtrl', ['$scope', '$state', 'User', function($scope, $state, User){
+    .controller('UsersCtrl', ['$rootScope', '$scope', '$state', 'User', function($rootScope, $scope, $state, User){
       $scope.user = {};
       $scope.mode = $state.current.name;
 
@@ -17,6 +17,7 @@
           });
         }else{
           User.login($scope.user).then(function(response){
+            $rootScope.$broadcast('username', $scope.user.username);
             toastr.success('User successfully authenticated.');
             $state.go('home');
           }, function(){
