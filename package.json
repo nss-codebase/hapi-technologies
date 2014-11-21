@@ -35,6 +35,7 @@
     "joi": "^4.9.0",
     "jshint-stylish": "^1.0.0",
     "lout": "^5.1.2",
-    "mongoose": "^3.8.19"
+    "mongoose": "^3.8.19",
+    "socket.io": "^1.2.1"
   }
 }

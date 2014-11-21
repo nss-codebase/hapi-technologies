@@ -8,6 +8,11 @@
         $scope.init = true;
       });
 
+      $scope.$on('online', function(){
+        $scope.online = true;
+        $scope.$digest();
+      });
+
       $scope.logout = function(){
         User.logout().then(function(){
           $scope.username = null;
