@@ -15,6 +15,8 @@
     .run(['$rootScope', '$http', function($rootScope, $http){
       $http.get('/status').then(function(response){
         $rootScope.$broadcast('username', response.data.username);
+      }, function(){
+        $rootScope.$broadcast('username', null);
       });
     }]);
 })();
